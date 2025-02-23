@@ -1,0 +1,11 @@
+The issue arises when using Tailwind's `@apply` directive within a component's style attribute, especially when dealing with complex or nested styles.  The problem occurs because `@apply` doesn't reliably inherit or cascade styles properly when used this way. For example:
+
+```html
+<div class="bg-gray-100 p-4">
+  <div class="@apply bg-blue-500 rounded-lg p-2">
+    This text should be blue and rounded, but it sometimes isn't.
+  </div>
+</div>
+```
+
+Sometimes the inner `@apply` directive is ignored or only partially applied, resulting in inconsistent styling. This is more common in scenarios with more deeply nested elements or complex class combinations.
